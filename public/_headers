@@ -1,0 +1,13 @@
+# Netlify headers
+
+# 1) Never cache any HTML (SPA routes included)
+/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# 2) Cache fingerprinted build assets aggressively (safe because filenames are hashed)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 3) Never cache the deploy version file
+/version.json
+  Cache-Control: no-cache, no-store, must-revalidate
